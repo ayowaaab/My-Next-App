@@ -1,38 +1,26 @@
-import Link from "next/link";
 import React from "react";
-import { sort } from "fast-sort";
-
-interface albumProps {
+interface AlbumsProps {
   id: number;
   title: string;
-  searchParams: { sortOrder: string };
+  searchParams: { sortedOrder: string };
 }
 
-const Albums = async ({
-  id,
-  title,
-  searchParams: { sortOrder },
-}: albumProps) => {
+const Albums = async ({ searchParams: { sortedOrder } }: AlbumsProps) => {
   const res = await fetch("https://jsonplaceholder.typicode.com/albums");
-  const albums: albumProps[] = await res.json();
-  const sorted = sort(albums).asc(
-    sortOrder === "title" ? (album) => album.title : (album) => album.id
-  );
+  const albums: AlbumsProps[] = await res.json();
+
   return (
     <>
-      <table className="table table-zebra my-5">
+    <input type="text" placeholder="Search" className="input input-bordered w-full my-5" />
+      <table className="table table-zebra">
         <thead>
           <tr>
-            <th className="text-xl cursor-pointer">
-              <Link href="albums?sortOrder=id">ID</Link>
-            </th>
-            <th className="text-xl cursor-pointer">
-              <Link href="albums?sortOrder=title">Title</Link>
-            </th>
+            <th className="text-2xl">ID</th>
+            <th className="text-2xl">Title</th>
           </tr>
         </thead>
         <tbody>
-          {sorted.map((album) => (
+          {albums.map((album) => (
             <tr key={album.id}>
               <td>{album.id}</td>
               <td>{album.title}</td>

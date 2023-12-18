@@ -13,7 +13,7 @@ const ProductCard = ({ name, email, phone }: Props) => {
         <h1 className="text-3xl ">{name}</h1>
         <p className="text-lg">{phone}</p>
         <p className="text-sm">{email}</p>
-        <button className="text-sm bg-white text-black rounded-lg py-2 hover:text-white hover:bg-slate-500 w-1/2 m-auto duration-300">
+        <button className="btn btn-outline w-1/2 m-auto">
           View More
         </button>
       </div>
