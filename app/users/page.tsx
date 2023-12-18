@@ -1,6 +1,5 @@
 import React from "react";
 import ProductCard from "../component/ProductCard";
-import styles from "./users.module.css";
 
 interface User {
   id: number;
@@ -14,7 +13,7 @@ const UsersPage = async () => {
   return (
     <>
       <center>
-        <h1 className={styles.title}>- Users -</h1>
+        <h1 className="text-7xl my-10">- Users -</h1>
       </center>
       <ul
         style={{
@@ -26,8 +25,7 @@ const UsersPage = async () => {
         {users.map((user) => (
           <>
             <div style={{ justifySelf: "center", textAlign: "center" }}>
-              <h2 key={user.id}>{user.name}</h2>
-              <br />
+              <h1 className="text-3xl" key={user.id}>{user.name}</h1>
               <ProductCard />
             </div>
           </>
