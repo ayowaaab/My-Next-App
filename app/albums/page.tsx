@@ -3,10 +3,9 @@ import SearchBar from "../component/SearchBar";
 interface AlbumsProps {
   id: number;
   title: string;
-  searchParams: { sortedOrder: string };
 }
 
-const Albums = async ({ searchParams: { sortedOrder } }: AlbumsProps) => {
+const Albums = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/albums");
   const albums: AlbumsProps[] = await res.json();
 
