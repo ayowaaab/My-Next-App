@@ -15,17 +15,16 @@ const UsersPage = async () => {
   return (
     <>
       <center>
-        <h1 className="text-7xl my-10">- Users -</h1>
+        <h1 className="text-2xl md:text-5xl 2xl:text-7xl my-10">- Users -</h1>
       </center>
-      <ul
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3,1fr)",
-          gap: "2rem",
-        }}
-      >
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-5">
         {users.map((user) => (
-              <ProductCard key={user.id} name={user.name} email={user.email} phone={user.phone} />
+          <ProductCard
+            key={user.id}
+            name={user.name}
+            email={user.email}
+            phone={user.phone}
+          />
         ))}
       </ul>
     </>

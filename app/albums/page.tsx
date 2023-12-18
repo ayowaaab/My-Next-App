@@ -1,4 +1,5 @@
 import React from "react";
+import SearchBar from "../component/SearchBar";
 interface AlbumsProps {
   id: number;
   title: string;
@@ -11,7 +12,7 @@ const Albums = async ({ searchParams: { sortedOrder } }: AlbumsProps) => {
 
   return (
     <>
-    <input type="text" placeholder="Search" className="input input-bordered w-full my-5" />
+    <SearchBar />
       <table className="table table-zebra">
         <thead>
           <tr>
