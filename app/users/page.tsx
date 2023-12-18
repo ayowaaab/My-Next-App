@@ -4,6 +4,8 @@ import ProductCard from "../component/ProductCard";
 interface User {
   id: number;
   name: string;
+  email: string;
+  phone: string;
 }
 
 const UsersPage = async () => {
@@ -19,16 +21,11 @@ const UsersPage = async () => {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3,1fr)",
-          gap: "1rem",
+          gap: "2rem",
         }}
       >
         {users.map((user) => (
-          <>
-            <div style={{ justifySelf: "center", textAlign: "center" }}>
-              <h1 className="text-3xl" key={user.id}>{user.name}</h1>
-              <ProductCard />
-            </div>
-          </>
+              <ProductCard key={user.id} name={user.name} email={user.email} phone={user.phone} />
         ))}
       </ul>
     </>
