@@ -7,14 +7,14 @@ const NavBar = () => {
       <Link href="/" className="text-5xl mr-5">
         🐺
       </Link>
-      <Link href="/users">
-        <button className="btn btn-sm md:btn-md   btn-neutral">Users</button>
+      <Link href="/users" className="btn btn-sm md:btn-md btn-neutral">
+        Users
       </Link>
-      <Link href="/albums">
-        <button className="btn btn-sm md:btn-md  btn-neutral">Albums</button>
+      <Link href="/albums" className="btn btn-sm md:btn-md btn-neutral">
+        Albums
       </Link>
-      <Link href="/admin">
-        <button className="btn btn-sm md:btn-md  btn-neutral">Admin</button>
+      <Link href="/admin" className="btn btn-sm md:btn-md btn-neutral">
+        Admin
       </Link>
     </nav>
   );

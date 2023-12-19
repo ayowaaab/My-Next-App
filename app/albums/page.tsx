@@ -1,33 +1,17 @@
-import React from "react";
+import React, { Suspense } from "react";
 import SearchBar from "../component/SearchBar";
-interface AlbumsProps {
-  id: number;
-  title: string;
+import UserTable from "../component/UserTable";
+
+interface Props {
+  searchParams: { sortOrder: string };
 }
 
-const Albums = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/albums");
-  const albums: AlbumsProps[] = await res.json();
-
+const Albums = ({searchParams:{sortOrder}}:Props) => {
+ 
   return (
-    <>
-    <SearchBar />
-      <table className="table table-zebra">
-        <thead>
-          <tr>
-            <th className="text-2xl">ID</th>
-            <th className="text-2xl">Title</th>
-          </tr>
-        </thead>
-        <tbody>
-          {albums.map((album) => (
-            <tr key={album.id}>
-              <td>{album.id}</td>
-              <td>{album.title}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <>  
+      <SearchBar />
+      <UserTable sortOrder={sortOrder} />
     </>
   );
 };
