@@ -1,9 +1,11 @@
 import { sort } from "fast-sort";
 import Link from "next/link";
+import TableButton from "./TableButton";
 
-interface AlbumsProps {
+interface ProductsProps {
   id: number;
-  title: string;
+  name: string;
+  price: number;
 }
 interface Props{
     sortOrder:string
@@ -11,9 +13,9 @@ interface Props{
 
 const UserTable = async ( { sortOrder }: Props) => {
 
-  const res = await fetch("https://jsonplaceholder.typicode.com/albums");
-  const albums: AlbumsProps[] = await res.json();
-  const sorted = sort(albums).asc(sortOrder === "title"? u => u.title: u=>u.id)
+  const res = await fetch("http://localhost:3000/api/products");
+  const products: ProductsProps[] = await res.json();
+  const sorted = sort(products).asc(sortOrder === "name"? u => u.name: u=>u.id)
 
   return (
     <div>
@@ -21,22 +23,31 @@ const UserTable = async ( { sortOrder }: Props) => {
         <thead>
           <tr>
             <th>
-              <Link href="/albums?sortOrder=id" className="text-2xl">
+              <Link href="/products?sortOrder=id" className="text-2xl">
                 ID
               </Link>
             </th>
             <th>
-              <Link href="/albums?sortOrder=title" className="text-2xl">
-                Title
+              <Link href="/products?sortOrder=name" className="text-2xl">
+                Name
               </Link>
             </th>
+            <th>
+              <Link href="/products?sortOrder=price" className="text-2xl">
+                Price
+              </Link>
+            </th>
+            <th colSpan={2}  className="text-2xl ">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {sorted.map((album) => (
-            <tr key={album.id}>
-              <td>{album.id}</td>
-              <td>{album.title}</td>
+          {sorted.map((product) => (
+            <tr key={product.id}>
+              <td>{product.id}</td>
+              <td>{product.name}</td>
+              <td>{product.price} DT</td>
+              <td><TableButton id={product.id} name="Delete" type="secondary" /></td>
+              <td><TableButton id={product.id} name="Update" type="accent" /></td>
             </tr>
           ))}
         </tbody>

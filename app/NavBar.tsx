@@ -10,8 +10,8 @@ const NavBar = () => {
       <Link href="/users" className="btn btn-sm md:btn-md btn-neutral">
         Users
       </Link>
-      <Link href="/albums" className="btn btn-sm md:btn-md btn-neutral">
-        Albums
+      <Link href="/products" className="btn btn-sm md:btn-md btn-neutral">
+        Products
       </Link>
       <Link href="/admin" className="btn btn-sm md:btn-md btn-neutral">
         Admin

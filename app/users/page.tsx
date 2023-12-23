@@ -10,9 +10,9 @@ interface User {
 }
 
 const UsersPage = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const res = await fetch("http://localhost:3000/api/users");
   const users: User[] = await res.json();
-
+  
   return (
     <>
       <h1 className="text-center text-2xl md:text-5xl 2xl:text-7xl my-10">
@@ -21,6 +21,7 @@ const UsersPage = async () => {
       <Link href="users/new" className="btn btn-primary my-5 uppercase">
         Add User
       </Link>
+    
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-5">
           {users.map((user) => (
             <ProductCard

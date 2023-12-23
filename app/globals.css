@@ -23,6 +23,7 @@ body {
     rgba(185, 87, 241, 1) 50%,
     rgba(0, 212, 255, 1) 100%
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

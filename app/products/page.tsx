@@ -6,7 +6,7 @@ interface Props {
   searchParams: { sortOrder: string };
 }
 
-const Albums = ({searchParams:{sortOrder}}:Props) => {
+const Products = ({searchParams:{sortOrder}}:Props) => {
  
   return (
     <>  
@@ -16,4 +16,4 @@ const Albums = ({searchParams:{sortOrder}}:Props) => {
   );
 };
 
-export default Albums;
+export default Products;
